@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/contentTemplate_pt.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>JColtrane - Anota&ccedil;&otilde;es B&aacute;sicas de Condi&ccedil;&atilde;o</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+.style10 {
+	font-size: 24px;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.EstiloMenu {font-family: Verdana, Arial, Helvetica, sans-serif}
+.EstiloConteudo {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; }
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style13 {font-size: 18px; color: #FF0000; }
+.style14 {font-size: 18px; color: #000000; }
+.style14 {font-size: 18px; color: #000000; }
+.style15 {color: #FF0000}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="Header JColtrane" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">
+      <p><img src="../SAX.jpg" width="374" height="170" /></p>
+      <p><span class="EstiloMenu"><a href="http://sourceforge.net/project/showfiles.php?group_id=233687">Download</a> - <a href="http://sourceforge.net/forum/?group_id=233687">F&oacute;rum</a></span></p>
+    </div></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="RepeatRegion2" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td width="251" align="left" valign="top" bordercolor="#FFFFFF" bgcolor="#DD6530"><p align="center" class="style10">Guia do Usu&aacute;rio Conte&uacute;do</p>      
+      <ol class="EstiloConteudo">
+        <li><a href="conhecimeto_previo_necessario.html">Conhecimento Prévio Necessário</a></li>
+        <li><a href="classico_hello_world_sax.html">Clássico "Hello World" com SAX</a></li>
+        <li><a href="classico_hello_world_JColtrane.html">Clássico "Hello World" com JColtrane</a></li>
+        <li><a href="anotacoes_basicas_de_condicao.html">Anotações Básicas de Condição</a></li>
+        <li><a href="opcoes_de_filtragem_de_elementos.html">Opcões de Filtragem de Elementos</a></li>
+        <li><a href="outras_formas_de_filtragem.html">Outras Formas de Filtragem</a></li>
+        <li><a href="construindo_suas_proprias_condicoes_de_filtragem.html">Construindo Suas Próprias Condições de Filtragem</a></li>
+        <li><a href="como_receber_parametros_do_JColtrane.html">Como Receber Parâmetros do  JColtrane</a></li>
+        <li><a href="extendendo_o_processamento.html">Extendendo o Processamento XML.</a></li>
+    </ol></td>
+    <td width="755"><!-- InstanceBeginEditable name="EditRegion4" -->
+      <blockquote>
+        <p class="style10">Anota&ccedil;&otilde;es B&aacute;sicas de Condi&ccedil;&atilde;o</p>
+        <p align="justify" class="style14">Na se&ccedil;&atilde;o anterior foram apresentadas quatro anota&ccedil;&otilde;es b&aacute;sicas:</p>
+        <blockquote>
+          <blockquote>
+            <table width="550" border="1" cellpadding="1" cellspacing="1" bordercolor="#000000">
+              <tr>
+                <th scope="col">Anota&ccedil;&atilde;o</th>
+                <th scope="col">Significado</th>
+              </tr>
+              <tr>
+                <td>StartDocument</td>
+                <td>m&eacute;todo anotado deve executar no in&iacute;cio do processamento do documento XML</td>
+              </tr>
+              <tr>
+                <td>EndDocument</td>
+                <td>m&eacute;todo anotado deve executar no fim do processamento do documento XML</td>
+              </tr>
+              <tr>
+                <td>StartElement</td>
+                <td>m&eacute;todo anotado deve executar quando um elemento do XML iniciar </td>
+              </tr>
+              <tr>
+                <td>EndElement </td>
+                <td>m&eacute;todo anotado deve executar quando um elemento do XML terminar </td>
+              </tr>
+            </table>
+          </blockquote>
+        </blockquote>
+        <p align="justify" class="style14">As anota&ccedil;&otilde;es acima funcionam de maneira similar aos m&eacute;todos startDocument, endDocument, startElement e endElement, da classe DefaultHandler, a principal classe do SAX, como voc&ecirc; p&ocirc;de ver em <a href="classico_hello_world_JColtrane.html">Clássico "Hello World" com JColtrane</a><a href="classic_hello_world_JColtrane.html"></a>. </p>
+        <p align="justify" class="style13">Uma ou mais dessas anota&ccedil;&otilde;es devem estar presentes em um m&eacute;todo se voc&ecirc; desejar que o  JColtrane o execute.</p>
+        <p align="justify" class="style14">StartDocument &eacute; usado, em geral, para inicializar o que &eacute; necess&aacute;rio das suas classes, como por exemplo um buffer, antes do processamento.</p>
+        <p align="justify" class="style14">EndDocument &eacute; usado, em geral, para liberar recursos do sistema, como por exemplo um buffer, depois do processamento.</p>
+        <p align="justify" class="style14">Ambas anota&ccedil;&otilde;es anteriores podem ser usadas somente em <span class="style15">m&eacute;todos sem par&acirc;metros</span>, uma vez que n&atilde;o faz sentido elas receberem qualquer informa&ccedil;&atilde;o antes do processamento ou depois do t&eacute;rmino do mesmo.</p>
+        <p align="justify" class="style14">As outras duas, StartElement e EndElement, s&atilde;o destinadas para  m&eacute;todos que fazem algum tratamento nos dados XML. Por causa disso, JColtrane apresenta algumas op&ccedil;&otilde;es para permitir ao usu&aacute;rio escolher as circunst&acirc;ncias nas quais os m&eacute;todos anotados devem executar. JColtrane faz ser poss&iacute;vel, tamb&eacute;m, receber alguns  par&acirc;metros contendo  informa&ccedil;&atilde;o sobre o processamento.</p>
+        <p align="justify" class="style14"> Nas pr&oacute;ximas duas se&ccedil;&otilde;es ser&atilde;o apresentadas op&ccedil;&otilde;es para <a href="opcoes_de_filtragem_de_elementos.html">filtrar elementos</a> e <a href="como_receber_parametros_do_JColtrane.html">como receber parâmetros</a>.</p>
+      </blockquote>
+    <!-- InstanceEndEditable --></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <!-- InstanceBeginRepeat name="FootNote" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td height="184" bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<p>&nbsp;</p>
+</body>
+
+<!-- InstanceEnd --></html>

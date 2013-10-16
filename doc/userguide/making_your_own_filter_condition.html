@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/contentTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>JColtrane - Making Your Own Filter Conditions</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+.style10 {
+	font-size: 24px;
+	color: #000000;
+}
+.EstiloMenus {font-family: Verdana, Arial, Helvetica, sans-serif}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.EstiloConteudo {font-size: 13px}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><style type="text/css">
+<!--
+.style9 {font-size: 18px; color: #000000; }
+-->
+</style>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin:0cm;
+margin-bottom:.0001pt;
+text-indent:35.45pt;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+.style12 {color: #FF0000}
+.style13 {
+	font-family: 'Courier New';
+	font-size: 10.0pt;
+	color: black;
+}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="Header JColtrane" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td bordercolor="#000000" bgcolor="#FFFFFF"><div align="center">
+      <p><img src="../SAX.jpg" width="374" height="170" bgcolor="#DD6530" /></p>
+      <p><span class="EstiloMenus"><a href="http://sourceforge.net/project/showfiles.php?group_id=233687">Download</a> - <a href="http://sourceforge.net/forum/?group_id=233687">Forum</a></span></p>
+    </div></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="RepeatRegion2" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td width="251" align="left" valign="top" bordercolor="#FFFFFF" bgcolor="#DD6530"><blockquote class="EstiloMenus">
+      <p align="center" class="style10">User Guide Content</p>
+      </blockquote>      
+      <ol class="EstiloConteudo">
+        <li><a href="necessary_previous_knowledge.html">Necessary Previous Knowledge</a></li>
+        <li><a href="classic_hello_world_SAX.html">Classic "Hello World" with SAX</a></li>
+        <li><a href="classic_hello_world_JColtrane.html">Classic "Hello World" with JColtrane</a></li>
+        <li><a href="basic_annotation_conditions.html">Basic Annotation Conditions</a></li>
+        <li><a href="filtering_element_options.html">Filtering Element Options</a></li>
+        <li><a href="another_ways_to_refine_filtering.html">More Filtering Options</a></li>
+        <li><a href="making_your_own_filter_condition.html">Making Your Own Filter Conditions</a></li>
+        <li><a href="receiving_parameters_from_JColtrane.html">Receiving Parameters from JColtrane</a></li>
+        <li><a href="extending_parsing_process.html">Extending Parsing Process</a></li>
+      </ol>    </td>
+    <td width="755"><!-- InstanceBeginEditable name="EditRegion4" -->
+      <blockquote>
+        <p class="style10">Making Your Own Filter Conditions</p>
+        <p align="justify" class="style9">In last section you saw how<em> Before</em><em>Element </em>and <em>InsideElement </em>works. With these conditions and the basic options from <em>StartElement </em>and <em>EndElement</em> you can do a lot of filters. But your imagination always think in some type of filtering that will be difficult or impossible to accomplish just using <em>BeforeElement </em>or <em>InsideElement</em>. To solve this question, JColtrane allows user to create your own annotion with the all kind of conditions you want. So, in this section we will see the steps to build the annotation and conditions, making an example that intend to allow build a condition concerning to the current branch of the parsing process.</p>
+        <blockquote>
+          <p align="justify" class="style10">Step 1: Creating An Annotation</p>
+        </blockquote>
+        <p align="justify" class="style9">The first thing you must to do is create the annotation that will indicating the conditions you want. It's recomended using a significative name. For example, we will create the <em>UserAnnotation:</em></p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Retention</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(RetentionPolicy.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">RUNTIME</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Target</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(ElementType.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">METHOD</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Documented</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">@interface</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">UserAnnotation</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String <span style="background:silver; ">currentBranch</span>() </span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+        </blockquote>
+        <p class="style9">In the annotation you must to insert the metadata that you will need to build you condition. In the above example, we need the current branch.</p>
+        <blockquote>
+          <p class="style10">Step 2: Creating Condition</p>
+        </blockquote>
+        <p class="style9">To create your condition, you mus implement the intefarce <em>Condition </em>from JColtrane's package net.sf.jColtrane.conditions. This interface has the method <em>verify </em> that returns a boolean. You must make it return true when your condition is satisfied and false if it's not satisfied. In our example, we want make possible for user choose a desired current branch based on a regular expression:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> UserCondition&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">implements</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> Condition {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; ">&nbsp;</span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">private</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> Pattern </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">pattern</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> UserCondition(String regularExpression,</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">int</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> elementDeep) {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">pattern</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=Pattern.<em>compile</em>(regularExpression);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; ">&nbsp;</span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Override</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">boolean</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> verify(ContextVariables contextVariables) {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">return</span></strong> <span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">pattern</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.matcher(contextVariables.getCurrentBranch()).matches();</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+          <p class="MsoNormal style13" style="text-indent:0cm;">&nbsp;</p>
+        </blockquote>
+        <p class="style9" style="text-indent:0cm;">The ContextVariables is a special class that gives you all information about the parsing. We will see it in details in <a href="receiving_parameters_from_JColtrane.html">Receiving Parameters from JColtrane</a>. </p>
+        <blockquote>
+          <p class="style10">Step 3: Creating a ConditionFactory</p>
+        </blockquote>
+        <p class="style9">You need to extend the abstract class <em>ConditionFactory</em>. This class has the abstract method <em>getConditions </em>that return a list of <em>Condition. </em>It receives a Annotation as parameter, that could be the <em>UserAnnotation</em> that we have created. So, in this class you receive de metadata you need to build your condition. Note that for the annotation could exist several linked conditions. So, this is the reason you need to return a list of conditions. You can just remember from <em>StartElement </em>that you can put a tag condition and a uri condition, so, in this case, there are 2 linked condition to the <em>StartElement </em>annotation. In our example we make just one condition for simplicity. Let's see:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong> <strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> UserConditionsFactory </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">implements</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> ConditionsFactory{</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; ">&nbsp;</span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Override</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> List&lt;Condition&gt; getConditions(Annotation annotation) {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">if</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(annotation </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">instanceof</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">UserAnnotation</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">){</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Condition&gt;  conditions=</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">new</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> LinkedList&lt;Condition&gt;();</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">UserAnnotation</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> userAnnotation=(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">UserAnnotation</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">) annotation;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conditions.add(</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">new</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> UserCondition(userAnnotation.currentBranch()));</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">return</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> conditions;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">return</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">null</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+        </blockquote>
+        <p class="style9">Note that the method returns null if the annotation is not from the desired type. If you return null in this method, JColtrane will not consider any condition to execute the method.</p>
+        <blockquote>
+          <p class="style10">Step 4: Indicating JColtrane the ConditionsFactory</p>
+        </blockquote>
+        <p class="style9">In this Last Step, you need to tell JColtrane where to find the factory you created. We do this including the line in <em>UserAnnotation:</em></p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Retention</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(RetentionPolicy.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">RUNTIME</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Target</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(ElementType.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">METHOD</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Documented</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; background:aqua; ">@ConditionFactoryAnnotation</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; background:aqua; ">(UserConditionsFactory.</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; background:aqua; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; background:aqua; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">@interface</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">UserAnnotation</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String  currentBranch();</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+        </blockquote>
+        <p class="style9">After this last step, you can use your condition wherever you want:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> UserAnnotatedClass {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@UserAnnotation</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(currentBranch=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;/.*/line.*&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@<span style="background:silver; ">StartElement</span></span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong> <strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">void</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> executeUserTest(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@CurrentBranch</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> String currentBranch){</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(currentBranch);</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;executing test!!!!!&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+        </blockquote>
+        <p class="style9">Runnign the test, based on XML document viewed in last section, system prints:</p>
+        <blockquote>
+          <p class="style9">/beanDescriptor/line/<br />
+            executing test!!!!!<br />
+            /beanDescriptor/line/property/<br />
+            executing test!!!!!<br />
+            /beanDescriptor/line/paragraphy/<br />
+            executing test!!!!!<br />
+            /beanDescriptor/line/paragraphy/phrase/<br />
+            executing test!!!!!<br />
+            /beanDescriptor/line/property2/<br />
+            executing test!!!!!<br />
+          </p>
+        </blockquote>
+        <p class="style9 style12">NOTE: Just like when using <em>BeforeElement</em>, you need to use your annotations with an StartElement or a EndElement annotations. If you use just your annotation, JColtrane will not do anything. </p>
+        <p class="style9">After this section, you have a powerfull tool to filter element in a XML parsing  process. Now, to making you able to do anything you want when parsing XML, it's just missing how to get information from parsing process. Let's see it in <a href="receiving_parameters_from_JColtrane.html">Receiving Parameters from JColtrane</a>.</p>
+      </blockquote>
+    <!-- InstanceEndEditable --></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <!-- InstanceBeginRepeat name="FootNote" --><!-- InstanceBeginRepeatEntry -->
+  <tr bgcolor="#FFFFFF">
+    <td height="184">&nbsp;</td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<p>&nbsp;</p>
+</body>
+
+<!-- InstanceEnd --></html>

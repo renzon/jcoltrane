@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/contentTemplate_pt.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>JColtrane - Como Receber Par&acirc;metros do JColtrane</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+.style10 {
+	font-size: 24px;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.EstiloMenu {font-family: Verdana, Arial, Helvetica, sans-serif}
+.EstiloConteudo {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; }
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style12 {font-size: 18px; color: #000000; }
+.style12 {font-size: 18px; color: #000000; }
+.style13 {	font-family: 'Courier New';
+	font-size: 10.0pt;
+	color: black;
+}
+.style14 {	font-family: 'Courier New';
+	font-size: 10.0pt;
+	color: teal;
+}
+.style15 {font-size: 18px; color: #000000; }
+.style15 {font-size: 18px; color: #000000; }
+p.MsoNormal {margin:0cm;
+margin-bottom:.0001pt;
+text-indent:35.45pt;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="Header JColtrane" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">
+      <p><img src="../SAX.jpg" width="374" height="170" /></p>
+      <p><span class="EstiloMenu"><a href="http://sourceforge.net/project/showfiles.php?group_id=233687">Download</a> - <a href="http://sourceforge.net/forum/?group_id=233687">F&oacute;rum</a></span></p>
+    </div></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="RepeatRegion2" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td width="251" align="left" valign="top" bordercolor="#FFFFFF" bgcolor="#DD6530"><p align="center" class="style10">Guia do Usu&aacute;rio Conte&uacute;do</p>      
+      <ol class="EstiloConteudo">
+        <li><a href="conhecimeto_previo_necessario.html">Conhecimento Prévio Necessário</a></li>
+        <li><a href="classico_hello_world_sax.html">Clássico "Hello World" com SAX</a></li>
+        <li><a href="classico_hello_world_JColtrane.html">Clássico "Hello World" com JColtrane</a></li>
+        <li><a href="anotacoes_basicas_de_condicao.html">Anotações Básicas de Condição</a></li>
+        <li><a href="opcoes_de_filtragem_de_elementos.html">Opcões de Filtragem de Elementos</a></li>
+        <li><a href="outras_formas_de_filtragem.html">Outras Formas de Filtragem</a></li>
+        <li><a href="construindo_suas_proprias_condicoes_de_filtragem.html">Construindo Suas Próprias Condições de Filtragem</a></li>
+        <li><a href="como_receber_parametros_do_JColtrane.html">Como Receber Parâmetros do  JColtrane</a></li>
+        <li><a href="extendendo_o_processamento.html">Extendendo o Processamento XML.</a></li>
+    </ol></td>
+    <td width="755"><!-- InstanceBeginEditable name="EditRegion4" -->
+      <blockquote>
+        <p class="style10">Como Receber Par&acirc;metros do JColtrane</p>
+        <p align="justify" class="style15">Nas se&ccedil;&otilde;es passadas voc&ecirc; aprendeu como dizer ao JColtrane como executar m&eacute;todos e em que condi&ccedil;&otilde;es. Agora aprenderemos como obter informa&ccedil;&atilde;o do processamento.</p>
+        <blockquote>
+          <p align="justify" class="style10">ContextVariables</p>
+        </blockquote>
+        <p align="justify" class="style15">Na se&ccedil;&atilde;o anterior, quando voc&ecirc; estava construindo sua pr&oacute;pria condi&ccedil;&atilde;o, voc&ecirc; provavelmente notou que o m&eacute;todo <span class="style12"> <em>verify, </em>da interface <em>Condition, </em>recebia um objeto da classe <em>ContextVariable </em>como par&acirc;metro. Essa classe possui toda iforma&ccedil;&atilde;o sobre o processamento. Dada sua import&acirc;ncia, resumimos os m&eacute;todos dessa classe, dando a descri&ccedil;&atilde;o de cada um:</span></p>
+        <blockquote>
+          <table width="100%" border="1" cellspacing="1" cellpadding="1">
+            <tr>
+              <th colspan="2" scope="col">Classe ContextVariables</th>
+            </tr>
+            <tr>
+              <td><div align="center"><strong>M&eacute;todo</strong></div></td>
+              <td><div align="center"><strong>Descri&ccedil;&atilde;o</strong></div></td>
+            </tr>
+            <tr>
+              <td>getBody()</td>
+              <td>Retorna uma String com o conte&uacute;do do corpo do &uacute;ltimo elemento. Deve ser usado com <em>EndElement</em>, uma vez que todo o corpo s&oacute; &eacute; conhecido nesse momento</td>
+            </tr>
+            <tr>
+              <td>getCurrentBranch()</td>
+              <td>Retorna uma String com todos elementos que iniciaram e ainda n&atilde;o terminaram. Os elementos s&atilde;o separados por &quot;/&quot;.</td>
+            </tr>
+            <tr>
+              <td>getEvent(int)</td>
+              <td>Retorna o evento dado por sua profundidade. Eventos s&atilde;o empilhados em um pilha, isto &eacute;,profundidade igual a 0 significa  o &uacute;ltimo elemento, o do topo da pilha; profundidade igual a 1 siginifica o evento anterior e assim por diante. Retorna null se n&atilde;o h&aacute; evento correspondente a profundidade</td>
+            </tr>
+            <tr>
+              <td>getLastEvent()</td>
+              <td>Retorna o &uacute;ltimo evento </td>
+            </tr>
+            <tr>
+              <td>getGeneralUseMap()</td>
+              <td>Retorna um mapa para uso geral que o usu&aacute;rio pode usar para armazenar alguma informa&ccedil;&atilde;o. As chaves s&atilde;o String e os valores da Classe Object. </td>
+            </tr>
+            <tr>
+              <td>putInGeneralUseMap(String key,Object obj)</td>
+              <td>insere um elemnto no  General Use Map. </td>
+            </tr>
+          </table>
+        </blockquote>
+        <p align="justify" class="style15">Os eventos retornados em alguns m&eacute;todos s&atilde;o do tipo <em>SAXEvent. </em>Essa classe possui m&eacute;todos para acessar uri, local name, tag e atributos de um elemento.</p>
+        <p align="justify" class="style15">O General Use Map existe para permitir ao usu&aacute;rio armazenar  informa&ccedil;&otilde;es que pode, ajudar no processamento. Por exemplo, voc&ecirc; pode colocar um objeto quando um elemento iniciar e acess&aacute;-lo quando um elemento estiver finalizando.</p>
+        <p align="justify" class="style15">O objeto da  classe  ContextVariable &eacute; manipulada pelo <em>JColtraneXMLHandler</em><em> </em>e cada Handler possui uma inst&acirc;ncia dessa classe<em>.</em></p>
+        <p align="justify" class="style15">Para acessar esse objeto, voc&ecirc; s&oacute; precisa declarar um objeto dessa classe como par&acirc;metro no m&eacute;todo anotado com  <em>StartElement </em>ou<em> EndElement </em>.</p>
+        <p align="justify" class="style15">Veja o exemplo a seguir para entender melhor:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> ContextVariableReceiver {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">int</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">key</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=0;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@StartElement</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">void</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> executeUserStartTest(ContextVariables contextVariables){</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;\n\nExecuting in start element&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(contextVariables.getCurrentBranch());</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAXEvent  event=contextVariables.getLastEvent();</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Current tag: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+event.getTag());</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">if</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(event!=</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">null</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">){</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">for</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(String qName:  event.getAtributesHolder().getQNames()){</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Attribute name: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+qName+</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;\nvalue: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+event.getAtributesHolder().getValue(qName));</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAXEvent  beforeEvent=contextVariables.getEvent(1);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">if</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(beforeEvent!=</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">null</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;\nBefore tag: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+beforeEvent.getTag());</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ++</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">key</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contextVariables.putInGeneralUseMap(Integer.<em>toString</em>(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">key</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">), </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">new</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> Date());</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@EndElement</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">void</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> executeUserEndTest(ContextVariables contextVariables){</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;\n\nExecuting in end element&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(contextVariables.getCurrentBranch());</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAXEvent  event=contextVariables.getLastEvent();</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Current tag: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+event.getTag());</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">if</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(event!=</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">null</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">){</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">for</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(String qName:  event.getAtributesHolder().getQNames()){</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Attribute name: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+qName+</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;\nvalue: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+event.getAtributesHolder().getValue(qName));</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAXEvent  beforeEvent=contextVariables.getEvent(1);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">if</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(beforeEvent!=</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">null</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;\nBefore tag: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+beforeEvent.getTag());</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date  date=(Date) contextVariables.getGeneralUseMap().get(Integer.<em>toString</em>(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">key</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">));</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(date.getTime());</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">--</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">key</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+          <p class="MsoNormal style13" style="text-indent:0cm;">&nbsp;</p>
+        </blockquote>
+        <p class="style15" style="text-indent:0cm;">Processando o seguinte c&oacute;digo:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;?</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">xml </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">version</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;1.0&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">encoding</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;UTF-8&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">?&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">beanDescriptor</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">line</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">property&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">mandatory</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;true&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body  of the property</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">property </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">line</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">beanDescriptor</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span></p>
+        </blockquote>
+        <p class="style15">O sistema imprime:</p>
+        <blockquote>
+          <p>Executing in start element<br />
+            /beanDescriptor/<br />
+            Current tag: beanDescriptor<br />
+          </p>
+          <p>Executing in start element<br />
+            /beanDescriptor/line/<br />
+            Current tag: line</p>
+          <p>Before tag: beanDescriptor<br />
+          </p>
+          <p>Executing in start element<br />
+            /beanDescriptor/line/property/<br />
+            Current tag: property<br />
+            Attribute name: mandatory<br />
+            value: true</p>
+          <p>Before tag: line<br />
+          </p>
+          <p>Executing in end element<br />
+            /beanDescriptor/line/property/<br />
+            Current tag: property<br />
+            Attribute name: mandatory<br />
+            value: true</p>
+          <p>Before tag: line<br />
+            1221067433116<br />
+          </p>
+          <p>Executing in end element<br />
+            /beanDescriptor/line/<br />
+            Current tag: line</p>
+          <p>Before tag: beanDescriptor<br />
+            1221067433115<br />
+          </p>
+          <p>Executing in end element<br />
+            /beanDescriptor/<br />
+            Current tag: beanDescriptor<br />
+            1221067433114</p>
+        </blockquote>
+        <p class="style15">Assim, com <em>ContextVariables</em> voc&ecirc; pode acessar toda informa&ccedil;&atilde;o do processamento que precisar. Mas, para aplica&ccedil;&otilde;es simples, trabalhar com <em>ContextVariables</em> pode faz&ecirc;-lo sentir como &quot;matar uma formiga com um bomba at&ocirc;mica &quot;. Assim, vejamos outras maneiras de se receber par&acirc;metros.</p>
+        <blockquote>
+          <p class="style10">Anota&ccedil;&otilde;es de Par&acirc;metros  </p>
+        </blockquote>
+        <p class="style15">JColtrane permite receber algumas informa&ccedil;&otilde;es de par&acirc;metros somente os anotando-os. Veja a tabela a seguir com todos tipos de anota&ccedil;&otilde;es para par&acirc;metros:</p>
+        <blockquote>
+          <table width="100%" border="1" cellspacing="1" cellpadding="1">
+            <tr>
+              <th scope="col">Anota&ccedil;&atilde;o</th>
+              <th scope="col">Descri&ccedil;&atilde;o</th>
+            </tr>
+            <tr>
+              <td>Attribute(String qName)</td>
+              <td><p>Retorna o valor do atributo dado pelo seu nome qualificador do elemento corrente. Faz parsing autom&aacute;tico para todos tipos primitivos ou seu respectivos Wrappers.</p>
+                  <p>Retorna null para objetos ou MIN_VALUE para tipos primitivos, se o elemento n&atilde;o contiver o atributo.</p></td>
+            </tr>
+            <tr>
+              <td>AttributeMap</td>
+              <td>Retorna um mapa contendo todos atributtos do elemento corrente </td>
+            </tr>
+            <tr>
+              <td>CurrentBranch</td>
+              <td>Retorna o galho corrente do processamento</td>
+            </tr>
+            <tr>
+              <td>Uri</td>
+              <td>Retorna a uri do elemento corrente</td>
+            </tr>
+            <tr>
+              <td>Tag</td>
+              <td>Retorna a tag do elemento corrente</td>
+            </tr>
+            <tr>
+              <td>LocalName</td>
+              <td>Retorna o nome local do elemento corrente</td>
+            </tr>
+            <tr>
+              <td>GeneralUseMap</td>
+              <td>Retorna o GeneralUseMap do objeto da classe ContextVariables </td>
+            </tr>
+            <tr>
+              <td>Body</td>
+              <td>Retorna o corpo do elemento corrente. Possui as op&ccedil;&otilde;es newLine e tab, que podem assumir valores verdadeiro (true) ou falso (false), que retornam a String com ou sem marcadores de linha ou tabula&ccedil;&atilde;o, de acordo com o valor das propriedades. </td>
+            </tr>
+          </table>
+        </blockquote>
+        <p class="style15">Assim, com as anota&ccedil;&otilde;es acima, voc&ecirc; pode usar somente a anota&ccedil;&atilde;o apropriada no par&acirc;metros dos m&eacute;todos para receb&ecirc;-los.</p>
+        <p class="style15">Vejamos um  exemplo:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> ParametersReceiver {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; ">&nbsp;</span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@StartElement</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong> <strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">void</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> executeUserStartTest(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@CurrentBranch</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> String currentBranch,</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Attribute</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;page&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">) </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">int</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> pageNumber,</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@AttributeMap</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> Map  attributeMap,</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Tag</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> String tag,</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@Body</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(newLine=</span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">false</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">) String <span style="background:silver; ">body</span>){</span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; ">&nbsp;</span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println();</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(currentBranch);</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;current tag: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+tag);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;page number: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+pageNumber);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Att Map: &quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+attributeMap);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Body&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">+<span style="background:silver; ">body</span>);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+        </blockquote>
+        <p class="style15">Processando o c&oacute;digo XML:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;?</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">xml </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">version</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;1.0&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">encoding</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;UTF-8&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">?&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">beanDescriptor</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">line</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">property&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">mandatory</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;true&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">page</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;5&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body  of the property</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">property </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">line</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">beanDescriptor</span><span class="style14">&gt;</span> </p>
+        </blockquote>
+        <p class="style15">Temos:</p>
+        <blockquote>
+          <p>/beanDescriptor/<br />
+            current tag: beanDescriptor<br />
+            page number: -2147483648<br />
+            Att Map: {}<br />
+            Body</p>
+          <p>/beanDescriptor/line/<br />
+            current tag: line<br />
+            page number: -2147483648<br />
+            Att Map: {}<br />
+            Body</p>
+          <p>/beanDescriptor/line/property/<br />
+            current tag: property<br />
+            page number: 5<br />
+            Att Map: {page=5, mandatory=true}<br />
+            Body</p>
+        </blockquote>
+        <p class="style15">Como voc&ecirc; pode ver, voc&ecirc; pode usar qualquer n&uacute;mero de par&acirc;metros que desejar. Note que para o atributo  page, JColtrane codifica a String para int, retornando o MIN_VALUE para elementos que n&atilde;o contenham um atributo nomeado page. Se voc&ecirc; quisesse, poderia acessar  ContextVariables al&eacute;m de todos os par&acirc;metro que acessamos no exemplo. </p>
+        <p class="style15">Agora voc&ecirc; est&aacute; pronto para acessar toda informa&ccedil;&atilde;o que necessitar sobre o processamento. Vejamos como  extender o processamento na se&ccedil;&atilde;o <a href="extendendo_o_processamento.html">Extendendo o Processamento XML.</a><a href="extending_parsing_process.html"></a> </p>
+        <p align="justify" class="style12">&nbsp;</p>
+      </blockquote>
+    <!-- InstanceEndEditable --></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <!-- InstanceBeginRepeat name="FootNote" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td height="184" bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<p>&nbsp;</p>
+</body>
+
+<!-- InstanceEnd --></html>

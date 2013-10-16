@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/contentTemplate_pt.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>JColtrane -Outras Formas de Filtragem</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+.style10 {
+	font-size: 24px;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.EstiloMenu {font-family: Verdana, Arial, Helvetica, sans-serif}
+.EstiloConteudo {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; }
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style14 {font-size: 18px; color: #000000; }
+.style14 {font-size: 18px; color: #000000; }
+.style15 {color: #FF0000}
+.style17 {font-size: 18px; color: #000000; }
+.style17 {font-size: 18px; color: #000000; }
+p.MsoNormal {margin:0cm;
+margin-bottom:.0001pt;
+text-indent:35.45pt;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="Header JColtrane" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">
+      <p><img src="../SAX.jpg" width="374" height="170" /></p>
+      <p><span class="EstiloMenu"><a href="http://sourceforge.net/project/showfiles.php?group_id=233687">Download</a> - <a href="http://sourceforge.net/forum/?group_id=233687">F&oacute;rum</a></span></p>
+    </div></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="RepeatRegion2" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td width="251" align="left" valign="top" bordercolor="#FFFFFF" bgcolor="#DD6530"><p align="center" class="style10">Guia do Usu&aacute;rio Conte&uacute;do</p>      
+      <ol class="EstiloConteudo">
+        <li><a href="conhecimeto_previo_necessario.html">Conhecimento Prévio Necessário</a></li>
+        <li><a href="classico_hello_world_sax.html">Clássico "Hello World" com SAX</a></li>
+        <li><a href="classico_hello_world_JColtrane.html">Clássico "Hello World" com JColtrane</a></li>
+        <li><a href="anotacoes_basicas_de_condicao.html">Anotações Básicas de Condição</a></li>
+        <li><a href="opcoes_de_filtragem_de_elementos.html">Opcões de Filtragem de Elementos</a></li>
+        <li><a href="outras_formas_de_filtragem.html">Outras Formas de Filtragem</a></li>
+        <li><a href="construindo_suas_proprias_condicoes_de_filtragem.html">Construindo Suas Próprias Condições de Filtragem</a></li>
+        <li><a href="como_receber_parametros_do_JColtrane.html">Como Receber Parâmetros do  JColtrane</a></li>
+        <li><a href="extendendo_o_processamento.html">Extendendo o Processamento XML.</a></li>
+    </ol></td>
+    <td width="755"><!-- InstanceBeginEditable name="EditRegion4" -->
+      <blockquote>
+        <p class="style10">Outras Formas de Filtragem </p>
+        <p align="justify" class="style17">Na se&ccedil;&atilde;o anterior vimos algumas formas de filtrar os elementos que quer&iacute;amos. Al&eacute;m dessas op&ccedil;&otilde;es, JCotrane possui outras: <em>BeforeElement</em> e <em>InsideElement</em>. Veremos ambas em detalhes, baseados no c&oacute;digo XML que se segue:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;?</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">xml </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">version</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;1.0&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">encoding</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;UTF-8&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">?&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">beanDescriptor</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">line</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">property&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">mandatory</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;true&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">page</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;4&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">language</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;pt&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">/&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">paragraphy</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">phrase </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">/&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">paragraphy</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">property2&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">mandatory</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;false&quot;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F007F; ">nacionality</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;pt&quot; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">/&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">line</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&lt;/</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#3F7F7F; ">beanDescriptor</span><span style="font-family:'Courier New'; font-size:10.0pt; color:teal; ">&gt;</span></p>
+          <p class="style10">BeforeElement</p>
+        </blockquote>
+        <p align="justify" class="style17">Algumas vezes, para executar alguma tarefa de processamento, voc&ecirc; quer que algum elemento anterior ao atual j&aacute; tenha iniciado e n&atilde;o tenha terminado ainda. Ent&atilde;o vamos supor que voc&ecirc; queira executar alguma tarefa quando um elemento estiver iniciando e o elemento anterior seja <em>paragraphy</em>. Para realizar essa tarefa, escrevos a seguinte classe:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> BeforeElementClass {&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; background:aqua; ">@BeforeElement</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; background:aqua; ">(elementDeep=1,tag=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; background:aqua; ">&quot;paragraphy&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; background:aqua; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@StartElement</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong> <strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">void</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> executeInStartElement(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@CurrentBranch</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> String currentBranch){</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(currentBranch);</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Executing something in start element\n&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+        </blockquote>
+        <p class="style17">Como voc&ecirc; pode notar, usamos a anota&ccedil;&atilde;o <em>BeforeElement</em> para informar ao  JColtrane o que quer&iacute;amos. Quando o JColtrane est&aacute; processando algum documento, ele empilha o elemento em uma pilha quando o mesmo inicia e desempilha quando o mesmo termina. Dessa forma, <em>elementDeep </em>com valor 1  indica o primeiro elemento antes do elemento corrente, com valor 2, indica o segundo elemento antes do elemento corrente e assim sucessivamente.</p>
+        <p class="style17">Al&eacute;m da propriedade  <em>elementDeep</em>, <em>BeforeElement</em> aceita as op&ccedil;&otilde;es <em>tag, uri, localName </em>e <em>ContainAttribute</em>. Todas essas op&ccedil;&otilde;es funcionam de forma an&aacute;loga &agrave; que vimos nas anota&ccedil;&otilde;es <em>EndElement </em>e <em>StartElement.</em></p>
+        <p class="style17">Rodando o c&oacute;digo, o sistema imprime:</p>
+        <blockquote>
+          <p>/beanDescriptor/line/paragraphy/phrase/<br />
+            Executing something in start element </p>
+        </blockquote>
+        <p class="style17"><strong><span class="style15">NOTA: voc&ecirc; deve usar <em>BeforeElement </em>em adi&ccedil;&atilde;o, com uma das anota&ccedil;&otilde;es <em>Element</em><em> </em>ou <em>StartElement</em> para indicar quando o m&eacute;todo deve executar. Se voc&ecirc; usar somente <em>BeforeElement</em>, o sistema n&atilde;o invocar&aacute; o m&eacute;todo anotado.</span></strong></p>
+        <blockquote>
+          <p class="style10">InsideElement</p>
+        </blockquote>
+        <p class="style17">Vamos dizer que voc&ecirc; queira executar algo toda vez que algum elemento inciou antes do corrente, em qualquer profundidade. Para fazer isso, Voc&ecirc; pode usar a anota&ccedil;&atilde;o <em>InsideElement</em>. Por exemplo, digamos que voc&ecirc; queira executar alguma a&ccedil;&atilde;o quando estiver iniciando qualquer elemento que esteja dentro do elemento com tag &quot;line&quot;. Assim, voc&ecirc; escreve a classe abaixo:</p>
+        <blockquote>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">class</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> <span style="background:silver; ">InsideElementClass</span> {</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@InsideElement</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">(tag=</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;line&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">)</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@StartElement</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">public</span></strong> <strong><span style="font-family:'Courier New'; font-size:10.0pt; color:#7F0055; ">void</span></strong><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> executeInStartElement(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#646464; ">@CurrentBranch</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; "> String currentBranch){</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(currentBranch);</span> </p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.</span><em><span style="font-family:'Courier New'; font-size:10.0pt; color:#0000C0; ">out</span></em><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">.println(</span><span style="font-family:'Courier New'; font-size:10.0pt; color:#2A00FF; ">&quot;Executing something in start element\n&quot;</span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">);</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;text-autospace:none;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span><span style="font-family:'Courier New'; font-size:10.0pt; "> </span></p>
+          <p class="MsoNormal" style="text-indent:0cm;"><span style="font-family:'Courier New'; font-size:10.0pt; color:black; ">}</span></p>
+        </blockquote>
+        <p><span class="style17">Al&eacute;m da op&ccedil;&atilde;o tag, <em class="style17">InsideElement </em></span> aceita <span class="style17"><em>uri, localName </em>e <em>ContainAttribute</em></span>. <span class="style17">Todas op&ccedil;&otilde;es funcionam de forma an&aacute;loga &agrave; vista em <em>EndElement </em>e<em>StartElement.</em></span></p>
+        <p class="style17">Rodando o c&oacute;digo, o sistema imprime:</p>
+        <blockquote>
+          <p>/beanDescriptor/line/<br />
+            Executing something in start element</p>
+          <p>/beanDescriptor/line/property/<br />
+            Executing something in start element</p>
+          <p>/beanDescriptor/line/paragraphy/<br />
+            Executing something in start element</p>
+          <p>/beanDescriptor/line/paragraphy/phrase/<br />
+            Executing something in start element</p>
+          <p>/beanDescriptor/line/property2/<br />
+            Executing something in start element</p>
+        </blockquote>
+        <p><strong><span class="style15">NOTA: Assim como <em>BeforeElement</em>, voc&ecirc; deve usar <em>InsideElement </em>em adi&ccedil;&atilde;o a <em>EndElement </em>ou <em>StartElement</em> para indicar quando o m&eacute;todo deve ser executado. Caso contr&aacute;rio, se voc&ecirc; usar apenas <em>InsideElement</em>, o sistema n&atilde;o invocar&aacute; o m&eacute;todo anotado.</span></strong> </p>
+        <p class="style17">Agora que voc&ecirc; viu como <em>InsideElement </em>e <em>BeforeElement </em>funcionam, vejamos como voc&ecirc; pode construir suas pr&oacute;prias anota&ccedil;&otilde;es com suas pr&oacute;prias condi&ccedil;&otilde;es em <a href="construindo_suas_proprias_condicoes_de_filtragem.html">Construindo Suas Próprias Condições de Filtragem.</a><a href="making_your_own_filter_condition.html"></a><a href="making_your_own_filter_condition"></a> </p>
+        <p align="justify" class="style14">&nbsp;</p>
+      </blockquote>
+    <!-- InstanceEndEditable --></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <!-- InstanceBeginRepeat name="FootNote" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td height="184" bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<p>&nbsp;</p>
+</body>
+
+<!-- InstanceEnd --></html>

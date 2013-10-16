@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/contentTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>JColtrane - Basic Annotation Conditions</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+.style10 {
+	font-size: 24px;
+	color: #000000;
+}
+.EstiloMenus {font-family: Verdana, Arial, Helvetica, sans-serif}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.EstiloConteudo {font-size: 13px}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><style type="text/css">
+<!--
+.style9 {font-size: 18px; color: #000000; }
+.style12 {font-size: 18px; color: #FF0000; }
+.style13 {color: #FF0000}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+}
+-->
+</style><!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="Header JColtrane" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td bordercolor="#000000" bgcolor="#FFFFFF"><div align="center">
+      <p><img src="../SAX.jpg" width="374" height="170" bgcolor="#DD6530" /></p>
+      <p><span class="EstiloMenus"><a href="http://sourceforge.net/project/showfiles.php?group_id=233687">Download</a> - <a href="http://sourceforge.net/forum/?group_id=233687">Forum</a></span></p>
+    </div></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="5" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <!-- InstanceBeginRepeat name="RepeatRegion2" --><!-- InstanceBeginRepeatEntry -->
+  <tr>
+    <td width="251" align="left" valign="top" bordercolor="#FFFFFF" bgcolor="#DD6530"><blockquote class="EstiloMenus">
+      <p align="center" class="style10">User Guide Content</p>
+      </blockquote>      
+      <ol class="EstiloConteudo">
+        <li><a href="necessary_previous_knowledge.html">Necessary Previous Knowledge</a></li>
+        <li><a href="classic_hello_world_SAX.html">Classic "Hello World" with SAX</a></li>
+        <li><a href="classic_hello_world_JColtrane.html">Classic "Hello World" with JColtrane</a></li>
+        <li><a href="basic_annotation_conditions.html">Basic Annotation Conditions</a></li>
+        <li><a href="filtering_element_options.html">Filtering Element Options</a></li>
+        <li><a href="another_ways_to_refine_filtering.html">More Filtering Options</a></li>
+        <li><a href="making_your_own_filter_condition.html">Making Your Own Filter Conditions</a></li>
+        <li><a href="receiving_parameters_from_JColtrane.html">Receiving Parameters from JColtrane</a></li>
+        <li><a href="extending_parsing_process.html">Extending Parsing Process</a></li>
+      </ol>    </td>
+    <td width="755"><!-- InstanceBeginEditable name="EditRegion4" -->
+      <blockquote>
+        <p class="style10">Basic Annotation Conditions</p>
+        <p align="justify" class="style9">In last section were presented four basic annotation conditions:</p>
+        <blockquote>
+          <table width="550" border="1" cellpadding="1" cellspacing="1" bordercolor="#000000">
+            <tr>
+              <th scope="col">Annotation</th>
+              <th scope="col">Meaning</th>
+            </tr>
+            <tr>
+              <td>StartDocument</td>
+              <td>annotated method must execute when starting XML document parsing </td>
+            </tr>
+            <tr>
+              <td>EndDocument</td>
+              <td>annotated method must execute when ending XML document parsing </td>
+            </tr>
+            <tr>
+              <td>StartElement</td>
+              <td>annotated method must execute when an element from XML is starting </td>
+            </tr>
+            <tr>
+              <td>EndElement </td>
+              <td>annotated method must execute when an element from XML is ending </td>
+            </tr>
+          </table>
+        </blockquote>
+        <p align="justify" class="style9">The above annotations work in a similar way that the methods startDocument, endDocument, startElement and endElement, from DefaultHandler, the main class from SAX, as you could see in <a href="classic_hello_world_JColtrane.html">Hello World With JColtrane</a>. </p>
+        <p align="justify" class="style12">One or more of above annotations must to be present in a method, if you want JColtrane executes it.</p>
+        <p align="justify" class="style9">StartDocument is used, in general, to start up your classes, for example a buffer, before the parsing process.</p>
+        <p align="justify" class="style9">EndDocument is used, in general, to free system resources, for example flushing a buffer, after the parsing process.</p>
+        <p align="justify" class="style9">Both previous annotatios must be used only in methods <span class="style13">without parameters</span>, once it's not make sense receive information before parsing start or after its end.</p>
+        <p align="justify" class="style9">The another 2 annotations, StartElement and EndElement, are destinated to methods that make some handling in XML data. Because of this, JColtrane present some options to allow user choose the circunstaces which the annotated method should execute. JColtrane make possible, either, receive some parameters containing information about the parsing.</p>
+        <p align="justify" class="style9"> In next two sections will be presented the options to <a href="filtering_element_options.html">filter elements</a> and <a href="receiving_parameters_from_JColtrane.html">how to receive parameters</a>. </p>
+      </blockquote>
+    <!-- InstanceEndEditable --></td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <!-- InstanceBeginRepeat name="FootNote" --><!-- InstanceBeginRepeatEntry -->
+  <tr bgcolor="#FFFFFF">
+    <td height="184">&nbsp;</td>
+  </tr>
+  <!-- InstanceEndRepeatEntry --><!-- InstanceEndRepeat -->
+</table>
+<p>&nbsp;</p>
+</body>
+
+<!-- InstanceEnd --></html>

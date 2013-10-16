@@ -3,5 +3,5 @@
 # Package Files #
 *.war
 *.ear
-# migrating from CVS 
-CVS/
+
+CVS/ # migrating from CVS 
