@@ -4,7 +4,7 @@ JColtrane
 Java XML parser: JColtrane - Better than SAX alone!
 
 
-All the documentation is located under doc directory and can be found either in http://jcoltrane.sf.net.
+All the documentation is located under doc directory and can be found either in [http://jcoltrane.sf.net](http://jcoltrane.sf.net).
 All the source code is under src directory.
 All the examples used through tutorial can be found in examples directory.
 To use the framework in another Java Projects, the user must only copy the file JColtrane 1.0 bet.jar to its project and point the ClassPath to it.
