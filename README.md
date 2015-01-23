@@ -5,7 +5,9 @@ Java XML parser: JColtrane - Better than SAX alone!
 
 
 All the documentation is located under doc directory and can be found either in [http://jcoltrane.sf.net](http://jcoltrane.sf.net). 
-The site is ugly, but i didn't knew nothing about web at the time =D. 
+The site is ugly, but i didn't knew nothing about web at the time =D. Besides that, the projec won first place among 70,000 other projects on worldwide contest:
+
+![Winner Letter](https://github.com/renzon/jcoltrane/blob/master/ContestWinnerLetter.jpg)
 
 All the source code is under src directory.
 
