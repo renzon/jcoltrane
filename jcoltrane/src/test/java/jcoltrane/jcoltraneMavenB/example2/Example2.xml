@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beanDescriptor>
+	<line>
+		<property  mandatory="true" page="4" language="pt" />		
+		<property2  mandatory="false"  nacionality="pt" />
+	</line>
+</beanDescriptor>
+
